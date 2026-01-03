@@ -1,0 +1,380 @@
+:root {
+  --bg-page: #f5f5f7;
+  --bg-left: #201032;
+  --primary: #009CFF;
+  --primary-light: #f0e3ff;
+  --text-light: #ffffff;
+  --text-dark: #1f1f2b;
+  --muted: #8f8fa3;
+  --card-bg: #ffffff;
+  --card-soft: #f8f8fb;
+  --border-soft: #e3e3f0;
+  --radius-lg: 24px;
+  --radius-md: 12px;
+  --radius-pill: 999px;
+  --shadow-soft: 0 18px 35px rgba(15, 12, 41, 0.23);
+}
+
+:root {
+    
+    --primary-2: #D9EEFF;
+    --primary-hover: #007bff;
+
+    --secondary: #414c57;
+    --secondary-2: #979da3;
+    --secondary-hover: #5a6268;
+
+    --light: #fff;
+    --dark: #191C24;
+    --font: #414c57;
+    --hover: #d9e7f74f;
+    --border: #e6e8eb;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* LAYOUT GERAL */
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(320px, 400px) 1fr;
+  gap: 40px;
+  padding: 20px 64px;
+}
+
+/*Área da imagem (grande, destaque SaaS)*/
+.col-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.visual-box {
+  background: #fff;
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 0 18px 35px rgba(15, 12, 41, 0.18);
+  justify-content: center; /* centraliza horizontal */
+  align-items: center;     /* centraliza vertical */
+}
+
+.visual-box img {
+  width: 85%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  margin: 0 auto; /* centraliza */
+}
+
+/*Texto baixo da img*/
+.content-box {
+  max-width: 720px;
+}
+
+.content-box h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.content-box p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.steps {
+  flex: 1; /* ocupa o espaço restante */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 6px;
+}
+
+
+.step-item {
+  border-radius: 16px;
+ 
+  transition: 0.2s ease;
+}
+
+.step-btn {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 14px 18px;
+  color: var(--text-light);
+  font-size: 0.95rem;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.step-item.active .step-btn {
+  background: var(--light);
+  color: var(--dark);
+  box-shadow: 0 0 0 2px rgba(8, 114, 235, 0.5);
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.step-item.active .arrow {
+  transform: rotate(180deg);
+}
+
+/* Conteúdo escondido */
+.step-content {
+  display: none;
+  background: rgba(255,255,255,0.08);
+  padding: 12px 18px 16px;
+}
+
+.step-item.active .step-content {
+  display: block;
+}
+
+
+.step-content p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #e0e0f5;
+}
+
+
+/* COLUNA ESQUERDA */
+.col-left {
+  background: var(--primary-hover);
+  border-radius: 24px;
+  padding: 40px 24px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 18px 35px rgba(15, 12, 41, 0.23);
+
+  /* 👇 altura controlada */
+ height: calc(100vh - 120px); /* ALTURA REAL */
+}
+
+
+.col-left h1 {
+  font-size: 1.7rem;
+  line-height: 1.35;
+  margin-bottom: 32px;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  /* 👇 scroll interno */
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+/* scrollbar bonita */
+.steps::-webkit-scrollbar {
+  width: 6px;
+}
+
+.steps::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 6px;
+}
+
+.steps::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* COLUNA DO MEIO */
+.col-middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.middle-card {
+  background: transparent;
+  border-radius: 0;
+  padding: 1px;
+  box-shadow: 0 18px 35px rgba(15, 12, 41, 0.18);
+  max-width: 100%;        /* garante que o card não passe da coluna */
+  overflow: hidden;       /* corta qualquer sobra da imagem */
+}
+
+.middle-card img {
+  display: block;
+  width: 100%;            /* ocupa toda a largura do card */
+  max-width: 100%;        /* não ultrapassa o card */
+  height: auto;
+  border-radius: 0;
+  margin: 0;
+}
+
+/* COLUNA DIREITA */
+
+.col-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* PAINÉIS (TABS) */
+
+.content-panel {
+  display: none;
+}
+
+.content-panel.active {
+  display: block;
+}
+
+/* CARD DE MÉTRICAS */
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 18px 0 16px;
+}
+
+.metric {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  border: 1px solid var(--border-soft);
+}
+
+.metric-label {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.metric-value {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* TABELA */
+
+.tickets-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 6px;
+  font-size: 0.78rem;
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.tickets-table thead {
+  background: #f3f3fb;
+}
+
+.tickets-table th,
+.tickets-table td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-soft);
+  white-space: nowrap;
+}
+
+.tickets-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tickets-table tbody tr:nth-child(even) {
+  background: #fafafb;
+}
+
+/* TEXTO LATERAL */
+
+.info-box {
+  align-self: flex-start;
+  background: transparent;
+  padding-top: 8px;
+}
+
+.tag {
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 6px 16px;
+  font-size: 0.8rem;
+  background: var(--primary-light);
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.info-box p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.info-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 0.9rem;
+  color: var(--primary);
+}
+
+.icon-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+/*Video na tela*/
+.device-mockup {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.mockup-img {
+  width: 100%;
+  display: block;
+}
+
+.mockup-video {
+  position: absolute;
+  top: 4.5%;
+  left: 10%;
+  width: 80%;
+  height: 72.2%;
+
+  object-fit: contain;
+  background: #0f0f12; /* preto suave */
+  border-radius: 0;
+}
+
+
+
+/* RESPONSIVO */
+
+@media (max-width: 1100px) {
+  .page {
+    grid-template-columns: 1fr;
+    padding: 24px 16px;
+  }
+
+  .col-middle {
+    margin: 20px 0;
+  }
+}

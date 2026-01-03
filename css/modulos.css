@@ -1,0 +1,135 @@
+/* ===============================
+   SEÇÃO FUNCIONALIDADES
+================================ */
+
+#funcionalidades {
+  position: relative;
+  padding: 100px 0;
+  background: #f6f8fc;
+  overflow: hidden;
+}
+
+/* Faixa azul decorativa lateral */
+#funcionalidades::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -20%;
+  width: 60%;
+  height: 100%;
+  border-radius: 0 80px 80px 0;
+  opacity: 0.08;
+  z-index: 1; /* 👈 ESSENCIAL */
+}
+
+
+/* ===============================
+   TÍTULO DA SEÇÃO
+================================ */
+
+.section-title {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.section-title h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.section-title p {
+  font-size: 1.05rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* ===============================
+   CARDS
+================================ */
+
+.feature-card {
+  position: relative;
+  height: 100%;
+  padding: 32px 24px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  transition: all 0.35s ease;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* Linha azul decorativa no topo */
+.feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #0d6efd, #4f9cff);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Hover elegante */
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(13, 110, 253, 0.18);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+/* ===============================
+   ÍCONES
+================================ */
+
+.feature-card i {
+  font-size: 2.6rem;
+  color: #0d6efd;
+  margin-bottom: 18px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover i {
+  transform: scale(1.1);
+}
+
+/* ===============================
+   TEXTO
+================================ */
+
+.feature-card h5 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* ===============================
+   RESPONSIVO
+================================ */
+
+@media (max-width: 768px) {
+  #funcionalidades {
+    padding: 70px 0;
+  }
+
+  .section-title h2 {
+    font-size: 2rem;
+  }
+}

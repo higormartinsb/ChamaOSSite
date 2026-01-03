@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChamaOS | Sistema de Ordens de Serviço</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="visualizacao2.css">
+
+  <style>
+    :root {
+      --primary: #009CFF;
+      --primary-dark: #007bff;
+      --bg-light: #fff;
+      --text-dark: #1f1f2b;
+      --text-muted: #8f8fa3;
+      --radius: 14px;
+
+      --section-white: #ffffff;
+      --section-soft: #f8fafc;
+      /* cinza azulado bem leve */
+      --section-soft-2: #f1f5f9;
+      /* um pouco mais contrastante */
+      --section-brand: #f0f7ff;
+      /* azul claríssimo */
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+    }
+
+    /* HEADER */
+    .navbar {
+      padding: 18px 0;
+      border-bottom: 1px solid #e5e7eb;
+      background: #fff;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.5rem;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      border: none;
+      border-radius: var(--radius);
+      padding: 10px 18px;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      border-radius: var(--radius);
+      padding: 10px 18px;
+      background: transparent;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(180deg, var(--bg-light), #fff);
+      padding: 90px 0;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    .hero img {
+      max-width: 100%;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      max-width: 700px;
+      margin: 0 auto 50px;
+      text-align: center;
+    }
+
+    .section-title h2 {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+    }
+
+    /* FEATURES */
+    .feature-card {
+      border: 1px solid #e5e7eb;
+      border-radius: var(--radius);
+      padding: 30px;
+      height: 100%;
+      transition: 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .08);
+    }
+
+    .feature-card i {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    /* PREVIEW */
+    .preview {
+      background: var(--bg-light);
+    }
+
+    .preview img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .1);
+    }
+
+    /* TARGET */
+    .target {
+      padding: 80px 0;
+    }
+
+    .target-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 32px 26px;
+      height: 100%;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 12px 28px rgba(15, 12, 41, 0.08);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .target-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 45px rgba(15, 12, 41, 0.15);
+    }
+
+    .target-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .target-icon i {
+      font-size: 1.6rem;
+      color: var(--primary);
+    }
+
+    .target-card h5 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .target-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* CTA */
+    .cta {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .cta p {
+      opacity: .9;
+    }
+
+    .cta .btn {
+      background: #fff;
+      color: var(--primary);
+      font-weight: 600;
+      border-radius: var(--radius);
+      padding: 14px 28px;
+    }
+
+    footer {
+      padding: 30px 0;
+      text-align: center;
+      font-size: .9rem;
+      color: #64748b;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .hero {
+        text-align: center;
+        padding: 70px 0;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+    }
+
+
+    /* DEMO */
+    .preview {
+      background: #f8fafc;
+    }
+
+    .demo-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .demo-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      border: 1px solid #e5e7eb;
+      background: #fff;
+      border-radius: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .demo-item i {
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    .demo-item:hover,
+    .demo-item.active {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .demo-item:hover i,
+    .demo-item.active i {
+      color: #fff;
+    }
+
+    .demo-view img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .12);
+      margin-bottom: 20px;
+    }
+
+    .demo-text h3 {
+      font-weight: 600;
+    }
+
+    .demo-text p {
+      color: var(--text-muted);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .demo-menu {
+        flex-direction: row;
+        overflow-x: auto;
+      }
+
+      .demo-item {
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+    }
+
+    /* CONTACT */
+    .contact {
+      background: #f8fafc;
+    }
+
+    .contact-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 40px 30px;
+      text-align: center;
+      height: 100%;
+      transition: .3s;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .08);
+    }
+
+    .contact-card i {
+      font-size: 2.6rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .contact-card h5 {
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .contact-card p {
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .contact-card a {
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .contact-card a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">ChamaOS</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#funcionalidades">Funcionalidades</a></li>
+          <li class="nav-item"><a class="nav-link" href="#como-funciona">Como funciona</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+          <li class="nav-item ms-lg-3"><a href="#teste" class="btn btn-primary">Testar grátis</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <span class="badge bg-primary mb-3">Sistema de Ordens de Serviço</span>
+          <h1>Controle total dos seus serviços,<br>do atendimento ao faturamento</h1>
+          <p>
+            O ChamaOS centraliza ordens de serviço, clientes,
+            equipes, estoque e financeiro em um único sistema online.
+          </p>
+          <div class="mt-4">
+            <a href="#teste" class="btn btn-primary">Testar grátis</a>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center mt-4 mt-lg-0">
+          <img src="teste.png" alt="Sistema ChamaOS">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÓDULOS -->
+  <section id="funcionalidades">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Módulos do ChamaOS</h2>
+        <p>
+          Todos os recursos que você precisa para gerenciar serviços,
+          clientes e operações em um único sistema.
+        </p>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- CLIENTES -->
+        <div class="col-md-3 col-sm-6">
+          <div class="feature-card">
+            <i class="bi bi-people"></i>
+            <h5>Clientes</h5>
+            <p>
+              Cadastro completo de clientes com histórico de atendimentos,
+              ordens de serviço e contatos centralizados.
+            </p>
+          </div>
+        </div>
+
+        <!-- EQUIPAMENTOS -->
+        <div class="col-md-3 col-sm-6">
+          <div class="feature-card">
+            <i class="bi bi-cpu"></i>
+            <h5>Equipamentos</h5>
+            <p>
+              Gerencie equipamentos vinculados aos clientes,
+              com identificação, status e histórico de serviços.
+            </p>
+          </div>
+        </div>
+
+        <!-- QR CODES -->
+        <div class="col-md-3 col-sm-6">
+          <div class="feature-card">
+            <i class="bi bi-qr-code-scan"></i>
+            <h5>QR Codes</h5>
+            <p>
+              Gere QR Codes para cada equipamento e acesse
+              informações, chamados e históricos em segundos.
+            </p>
+          </div>
+        </div>
+
+        <!-- ESTOQUE -->
+        <div class="col-md-3 col-sm-6">
+          <div class="feature-card">
+            <i class="bi bi-box-seam"></i>
+            <h5>Estoque</h5>
+            <p>
+              Controle entradas, saídas, produtos e insumos
+              utilizados nas ordens de serviço.
+            </p>
+          </div>
+        </div>
+
+        <!-- ORDENS DE SERVIÇO -->
+        <div class="col-md-3 col-sm-6">
+          <div class="feature-card">
+            <i class="bi bi-clipboard-check"></i>
+            <h5>Ordens de Serviço</h5>
+            <p>
+              Crie, acompanhe e finalize ordens de serviço
+              com registros, fotos, status e responsáveis.
+            </p>
+          </div>
+        </div>
+
+        <!-- FINANCEIRO -->
+        <div class="col-md-3 col-sm-6">
+          <div class="feature-card">
+            <i class="bi bi-cash-stack"></i>
+            <h5>Financeiro</h5>
+            <p>
+              Controle contas a pagar e receber, formas de pagamento,
+              movimentações e relatórios financeiros.
+            </p>
+          </div>
+        </div>
+
+        <!-- AGENDA -->
+        <div class="col-md-3 col-sm-6">
+          <div class="feature-card">
+            <i class="bi bi-calendar-check"></i>
+            <h5>Agenda</h5>
+            <p>
+              Organize compromissos, atendimentos e visitas técnicas
+              com visualização clara e prática.
+            </p>
+          </div>
+        </div>
+
+        <!-- TAREFAS -->
+        <div class="col-md-3 col-sm-6">
+          <div class="feature-card">
+            <i class="bi bi-list-check"></i>
+            <h5>Tarefas</h5>
+            <p>
+              Crie tarefas, defina responsáveis, prazos
+              e acompanhe a execução da equipe.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Visualizacao-->
+  <div class="container" id="como-funciona">
+    <div class="page">
+      <!-- COLUNA ESQUERDA -->
+      <section class="col-left">
+        <h1>Menos papel, mais controle: conheça o ChamaOS</h1>
+
+        <nav class="steps">
+          <button class="step active" data-target="tab-cliente" data-img="img/atendimento.gif">
+            1. Controle de Cliente
+          </button>
+
+          <button class="step" data-target="tab-equipamento" data-img="img/atendimento.gif">
+            2. Controle de Equipamentos
+          </button>
+
+          <button class="step" data-target="tab-qrcode" data-img="img/atendimento.gif">
+            3. Sistema de QRCodes
+          </button>
+
+          <button class="step" data-target="tab-manutencao" data-img="img/agendamento.gif">
+            4. Manutenções do Equipamento
+          </button>
+
+          <button class="step" data-target="tab-os" data-img="img/agendamento.gif">
+            5. Ordem de Serviços
+          </button>
+
+          <button class="step" data-target="tab-financeiro" data-img="img/execucao.gif">
+            6. Financeiro
+          </button>
+
+          <button class="step" data-target="tab-agendamento" data-img="img/faturamento.gif">
+            7. Agendamento e Tarefas
+          </button>
+
+          <button class="step" data-target="tab-estoque" data-img="img/satisfacao.gif">
+            8. Controle de Estoque
+          </button>
+        </nav>
+      </section>
+
+      <!-- COLUNA DO MEIO (IMAGEM) -->
+      <section class="col-middle">
+        <div class="middle-card">
+          <!-- imagem inicial combinando com o primeiro botão -->
+          <img id="feature-image" src="./img/atendimento.gif" alt="Atendimento">
+        </div>
+      </section>
+
+      <!-- COLUNA DIREITA (CONTEÚDO) -->
+      <section class="col-right">
+        <!-- Painel: QRCodes -->
+        <div class="content-panel active" id="tab-qrcode">
+
+          <h2>Controle por QRCodes</h2>
+          <p>Transforme cada equipamento em um ponto inteligente: com QR Code, visualize históricos, abra serviços e
+            acompanhe tudo em tempo real.</p>
+          <p>QR Code que conecta o equipamento ao histórico de serviços e relatórios.</p>
+        </div>
+
+        <!-- Painel: Ordem de serviços -->
+        <div class="content-panel" id="tab-os">
+          <h2>Controle de Ordens de Serviço</h2>
+          <p>Acompanhe status, registre serviços realizados, adicione observações, fotos e mantenha todo o histórico
+            salvo
+            em um só lugar.</p>
+          <p>Mais agilidade, menos papel e total controle sobre cada serviço executado.</p>
+        </div>
+
+        <!-- Painel: Financeiro -->
+        <div class="content-panel" id="tab-financeiro">
+          <h2>Controle Financeiro</h2>
+          <p>Cadastre bancos, formas de pagamento, contas a pagar e a receber, acompanhe extratos, movimentações e tenha
+            uma visão completa da saúde financeira do seu negócio.</p>
+          <p>Centralize toda a gestão financeira da sua empresa.</p>
+        </div>
+
+        <!-- Painel: Agendamento -->
+        <div class="content-panel" id="tab-agendamento">
+          <h2>Agendamentos e Tarefas Inteligentes</h2>
+          <p>Organize atendimentos, serviços e compromissos de forma simples e centralizada.
+            Agende horários, evite conflitos e mantenha sua rotina sempre em dia.</p>
+          <p>Controle seus agendamentos com mais praticidade.</p>
+        </div>
+
+        <!-- Painel: estoque -->
+        <div class="content-panel" id="tab-estoque">
+          <h2>Controle de Estoque</h2>
+          <p>Controle seu estoque de forma automática e organizada.
+            Importe notas fiscais, leia os produtos automaticamente e mantenha tudo sempre atualizado.</p>
+          <p>Estoque organizado com menos trabalho manual.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- TARGET -->
+  <section class="target section-soft">
+    <div class="container">
+      <div class="section-title text-center mb-5">
+        <h2>Ideal para quem vive de serviços</h2>
+        <p>O Chama OS se adapta a diferentes tipos de operação, do pequeno ao estruturado.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-3 col-sm-6">
+          <div class="target-card">
+            <div class="target-icon">
+              <i class="bi bi-tools"></i>
+            </div>
+            <h5>Assistência técnica</h5>
+            <p>Controle chamados, equipamentos, histórico e ordens de serviço em um só lugar.</p>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="target-card">
+            <div class="target-icon">
+              <i class="bi bi-gear-wide-connected"></i>
+            </div>
+            <h5>Empresas de manutenção</h5>
+            <p>Organize contratos, manutenções preventivas e equipes técnicas com eficiência.</p>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="target-card">
+            <div class="target-icon">
+              <i class="bi bi-briefcase"></i>
+            </div>
+            <h5>Prestadores de serviço</h5>
+            <p>Menos papel, mais produtividade e visão clara dos serviços realizados.</p>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="target-card">
+            <div class="target-icon">
+              <i class="bi bi-people"></i>
+            </div>
+            <h5>Equipes externas</h5>
+            <p>Acompanhe atendimentos em tempo real, direto do celular ou tablet.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / TESTE -->
+  <section class="cta" id="teste">
+    <div class="container text-center">
+
+      <h2 class="mb-3">Teste o ChamaOS na prática</h2>
+
+      <p class="mb-4">
+        Acesse agora nosso ambiente de demonstração e explore
+        todas as funcionalidades do sistema.
+      </p>
+
+      <div class="demo-access mx-auto mb-4">
+        <p class="mb-2 fw-semibold">Como acessar:</p>
+
+        <p class="mb-1">
+          <i class="bi bi-person"></i>
+          <strong>Usuário:</strong> <code>demo@demo.com</code>
+        </p>
+
+        <p class="mb-1">
+          <i class="bi bi-lock"></i>
+          <strong>Senha:</strong> <code>demo@demo.com</code>
+        </p>
+
+        <small class="opacity-75">
+          * Ambiente de demonstração para testes e navegação
+        </small>
+      </div>
+
+      <a href="https://teste.chamaservicos.com.br/ChamaOS/index.php" class="btn btn-light btn-lg" target="_blank">
+        Acessar ambiente de teste
+      </a>
+
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="contact" id="contato">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Fale com a gente</h2>
+        <p>
+          Ficou com alguma dúvida ou quer saber mais sobre o ChamaOS?
+          Entre em contato com nosso time.
+        </p>
+      </div>
+
+      <div class="row justify-content-center g-4">
+
+        <!-- EMAIL -->
+        <div class="col-md-5">
+          <div class="contact-card">
+            <i class="bi bi-envelope"></i>
+            <h5>E-mail</h5>
+            <p>Envie sua dúvida ou solicitação</p>
+            <a href="mailto:contato@chamaos.com.br">
+              contato@chamaos.com.br
+            </a>
+          </div>
+        </div>
+
+        <!-- WHATSAPP -->
+        <div class="col-md-5">
+          <div class="contact-card">
+            <i class="bi bi-whatsapp"></i>
+            <h5>WhatsApp</h5>
+            <p>Fale conosco pelo WhatsApp</p>
+            <a href="https://wa.me/5599999999999" target="_blank">
+              (99) 99999-9999
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+<footer class="footer-minimal">
+  © 2026 <strong>ChamaOS</strong> • Todos os direitos reservados
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./site.js"></script>
+</body>
+
+</html>

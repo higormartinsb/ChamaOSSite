@@ -1,0 +1,193 @@
+:root {
+  --bg-page: #f5f5f7;
+  --bg-left: #201032;
+  --primary: #009CFF;
+  --primary-light: #f0e3ff;
+  --text-light: #ffffff;
+  --text-dark: #1f1f2b;
+  --muted: #8f8fa3;
+  --card-bg: #ffffff;
+  --card-soft: #f8f8fb;
+  --border-soft: #e3e3f0;
+  --radius-lg: 24px;
+  --radius-md: 12px;
+  --radius-pill: 999px;
+  --shadow-soft: 0 18px 35px rgba(15, 12, 41, 0.23);
+
+  --primary-2: #D9EEFF;
+  --primary-hover: #007bff;
+  --secondary: #414c57;
+  --secondary-2: #979da3;
+  --secondary-hover: #5a6268;
+  --light: #fff;
+  --dark: #191C24;
+  --font: #414c57;
+  --hover: #d9e7f74f;
+  --border: #e6e8eb;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================
+   LAYOUT GERAL (2 COLUNAS)
+========================= */
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "menu visual"
+    "menu content";
+  gap: 32px;
+}
+
+
+/* =========================
+   COLUNA ESQUERDA (MENU)
+========================= */
+
+.col-left {
+  grid-area: menu;
+  background: var(--primary);
+  border-radius: var(--radius-lg);
+  padding: 36px 30px;
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  box-shadow: var(--shadow-soft);
+}
+
+
+.col-left h1 {
+  font-size: 1.6rem;
+  line-height: 1.35;
+}
+
+/* MENU */
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.step {
+  width: 100%;
+  text-align: left;
+  padding: 11px 16px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-light);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.step:hover {
+  background: rgba(255,255,255,.12);
+}
+
+.step.active {
+  background: var(--light);
+  color: var(--dark);
+  box-shadow: 0 6px 18px rgba(0,0,0,.15);
+}
+
+/* =========================
+   COLUNA DIREITA (STACK)
+   GIF EM CIMA / TEXTO EM BAIXO
+========================= */
+
+.col-middle {
+  grid-area: visual;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* CARD DO GIF */
+
+.middle-card {
+  background: transparent;
+  border-radius: 24px;
+  padding: 1px;
+  box-shadow: 0 18px 35px rgba(15, 12, 41, 0.18);
+  overflow: hidden;
+}
+
+.middle-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+
+/* =========================
+   CONTEÚDO ABAIXO DO GIF
+========================= */
+
+.col-right {
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+}
+
+/* PAINÉIS */
+
+.content-panel {
+  display: none;
+}
+
+.content-panel.active {
+  display: block;
+}
+
+.content-panel h2 {
+  font-size: 1.5rem;
+  margin-bottom: 14px;
+  color: var(--text-dark);
+}
+
+.content-panel p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 1100px) {
+  .page {
+    grid-template-columns: 1fr;
+    padding: 24px 16px;
+  }
+
+  .col-left {
+    padding: 24px 20px;
+  }
+
+  .steps {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 10px;
+  }
+
+  .step {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .col-middle {
+    gap: 24px;
+  }
+}

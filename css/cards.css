@@ -1,0 +1,173 @@
+/* ===============================
+   SEÇÃO TARGET — FUNDO SAAS
+================================ */
+
+.target {
+  position: relative;
+  padding: 0 0 90px 90px;
+  overflow: hidden;
+  border-radius: 50px 50px 0 0;
+
+  /* Fundo azul SaaS */
+  background: linear-gradient(
+    135deg,
+    #298cf7 0%,
+    #007bff 45%,
+    #009CFF 100%
+  );
+}
+
+/* efeito de luz suave */
+.target::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(
+    circle,
+    rgba(255,255,255,0.25),
+    transparent 70%
+  );
+}
+
+.target::after {
+  content: "";
+  position: absolute;
+  bottom: -140px;
+  left: -140px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(
+    circle,
+    rgba(255,255,255,0.18),
+    transparent 70%
+  );
+}
+
+
+/* ===============================
+   TÍTULO
+================================ */
+
+.target .section-title h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.target .section-title p {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.85);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+
+/* ===============================
+   CARD
+================================ */
+
+.target-card {
+  height: 100%;
+  background: rgba(255,255,255,0.96);
+  border-radius: 22px;
+  padding: 28px 22px;
+  text-align: center;
+
+  border: 1px solid rgba(255,255,255,0.5);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.25);
+
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* faixa decorativa */
+.target-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 60%,
+    rgba(0,156,255,0.12),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+/* Hover */
+.target-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 35px 80px rgba(0, 156, 255, 0.35);
+}
+
+.target-card:hover::before {
+  opacity: 1;
+}
+
+
+/* ===============================
+   ÍCONE
+================================ */
+
+.target-icon {
+  width: 62px;
+  height: 62px;
+  margin: 0 auto 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    #009cff,
+    #5cc7ff
+  );
+  color: #ffffff;
+  font-size: 1.6rem;
+
+  box-shadow: 0 12px 28px rgba(0, 156, 255, 0.45);
+}
+
+
+/* ===============================
+   TEXTO
+================================ */
+
+.target-card h5 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.target-card p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #475569;
+}
+
+
+/* ===============================
+   RESPONSIVO
+================================ */
+
+@media (max-width: 768px) {
+  .target {
+    padding: 70px 0;
+  }
+
+  .target .section-title h2 {
+    font-size: 1.7rem;
+  }
+
+  .target-card {
+    padding: 24px 18px;
+  }
+}
