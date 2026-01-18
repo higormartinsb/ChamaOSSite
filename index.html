@@ -42,11 +42,44 @@
 
 <body>
   <!--Icone Flutuante-->
-  <a href="https://wa.me/5527988891413?text=Olá! Gostaria de falar com a ChamaOS." class="whatsapp-float"
-    target="_blank" aria-label="Fale conosco no WhatsApp">
-    <i class="bi bi-whatsapp"></i>
-  </a>
+<a href="https://wa.me/5527988891413?text=Olá! Gostaria de falar com a ChamaOS."
+   class="whatsapp-float"
+   target="_blank"
+   aria-label="Fale conosco no WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
 
+ <!--Banner Flutuante-->
+<div class="ge-banner" id="geBanner">
+  <div class="ge-banner-inner">
+
+    <!-- Lado esquerdo com imagem -->
+    <div class="ge-banner-left">
+      <img src="./img/mobile.png" alt="Banner ChamaOS">
+      <div class="ge-banner-text">
+        <strong>GERENCIE TUDO NA <br>PALMA DA MÃO</strong>
+        <span>Empresas, equipamentos e QR Codes em tempo real</span>
+      </div>
+
+    </div>
+
+    <!-- Lado direito -->
+    <div class="ge-banner-right">
+      <a href="#contato" class="ge-banner-btn">Aproveitar agora</a>
+      <button class="ge-banner-close" onclick="closeGeBanner()">✕</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function closeGeBanner() {
+  const banner = document.getElementById('geBanner');
+  banner.style.transition = 'transform 0.3s ease';
+  banner.style.transform = 'translateY(100%)';
+  setTimeout(() => banner.remove(), 300);
+}
+</script>
 
   <!-- ================= HEADER ================= -->
   <header class="header">

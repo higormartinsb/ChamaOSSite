@@ -54,7 +54,7 @@ html, body {
 
 .linha path {
   fill: none;
-  stroke: #60b5ff;
+  stroke: var(--primary);
   stroke-width: 2;
   stroke-linecap: round;
 }
@@ -62,14 +62,14 @@ html, body {
 .ponto {
   width: 8px;
   height: 8px;
-  background-color: #60b5ff;
+  background-color: var(--primary);
   border-radius: 50%;
   margin-top: 18px;
   margin-left: -5px;
 }
 
 .os {
-  background-color: #60b5ff;
+  background-color: var(--primary);
   color: #ffffff;
   font-weight: 800;
   font-size: 20px;
@@ -78,6 +78,144 @@ html, body {
   line-height: 1;
   margin-left: -3px;
 
+}
+
+/*Banner*/
+.ge-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0;
+  background: linear-gradient(90deg, #084184, #60b5ff);
+  z-index: 9999;
+}
+
+.ge-banner-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 10px 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Esquerda */
+.ge-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #fff;
+}
+
+.ge-banner-left img {
+  height: 140px;
+  border-radius: 6px;
+  width: auto;
+   object-fit: contain;
+   margin-right: 50px;
+}
+
+.ge-banner-text strong {
+  display: block;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  font-style: italic;
+}
+
+.ge-banner-text span {
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+/* Direita */
+.ge-banner-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* CTA */
+.ge-banner-btn {
+  background: #ffffff;
+  color: #1e0b3a;
+  padding: 15px 30px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ge-banner-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+/* Botão fechar */
+.ge-banner-close {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: #ffffff;
+  color: #1a1a1a;
+  font-size: 18px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ======================
+   MOBILE (PROFISSIONAL)
+====================== */
+@media (max-width: 768px) {
+  .ge-banner-inner {
+    padding: 12px 16px;
+    gap: 16px;
+  }
+
+  .ge-banner-left img {
+    height: 44px;
+    max-width: 120px;
+  }
+
+  .ge-banner-text span {
+    display: none;
+  }
+
+  .ge-banner-text strong {
+    font-size: 15px;
+  }
+
+  .ge-banner-btn {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+}
+
+/* ======================
+   MOBILE PEQUENO
+====================== */
+@media (max-width: 480px) {
+  .ge-banner-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .ge-banner-right {
+    justify-content: space-between;
+  }
+
+  .ge-banner-btn {
+    flex: 1;
+    text-align: center;
+  }
 }
 
 .section-title h2{
@@ -128,38 +266,44 @@ html, body {
 
 .whatsapp-float {
   position: fixed;
-  right: 24px;
-  bottom: 24px;
-  width: 58px;
-  height: 58px;
+  right: 0;
+  top: 40%;
+  transform: translateY(-50%);
+
+  width: 52px;
+  height: 56px;
+
   background: linear-gradient(135deg, #25d366, #1ebe57);
-  color: #ffffff;
-  border-radius: 50%;
+  color: #fff;
+
+  border-radius: 12px 0 0 12px; /* ← chave do efeito */
+  
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
+
+  font-size: 1.7rem;
   z-index: 9999;
-  box-shadow: 0 16px 40px rgba(37, 211, 102, 0.5);
-  transition: all 0.3s ease;
+
+  box-shadow: -6px 10px 24px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease;
   text-decoration: none;
 }
 
 /* Hover desktop */
 .whatsapp-float:hover {
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 26px 60px rgba(37, 211, 102, 0.7);
+  width: 60px;
+  background: linear-gradient(135deg, #1ebe57, #25d366);
 }
 
 /* Animação sutil */
 .whatsapp-float::after {
   content: "";
   position: absolute;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   border-radius: 50%;
-  background: rgba(37, 211, 102, 0.35);
-  animation: pulse-whats 1.8s infinite;
+  background: rgba(37, 211, 102, 0.25);
+  animation: pulse-whats 2.2s infinite;
   z-index: -1;
 }
 
@@ -174,17 +318,14 @@ html, body {
   }
 }
 
-/* Mobile */
 @media (max-width: 768px) {
   .whatsapp-float {
-    width: 52px;
-    height: 52px;
-    font-size: 1.6rem;
-    right: 16px;
-    bottom: 16px;
+    width: 46px;
+    height: 50px;
+    font-size: 1.5rem;
+    top: 55%;
   }
 }
-
 
 /* DESKTOP */
 .desktop-btn {
