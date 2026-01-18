@@ -29,6 +29,57 @@ html, body {
   overflow-x: hidden;
 }
 
+/* Logo texto preto */
+.logo-chama {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chama {
+  position: relative;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1;
+}
+
+.linha {
+  position: absolute;
+  left: 2px;
+  bottom: -6px;
+  width: 94%;
+  height: 10px;
+}
+
+.linha path {
+  fill: none;
+  stroke: #60b5ff;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.ponto {
+  width: 8px;
+  height: 8px;
+  background-color: #60b5ff;
+  border-radius: 50%;
+  margin-top: 18px;
+  margin-left: -5px;
+}
+
+.os {
+  background-color: #60b5ff;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  line-height: 1;
+  margin-left: -3px;
+
+}
+
 .section-title h2{
   margin: 80px;
 }
