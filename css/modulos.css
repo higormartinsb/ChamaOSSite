@@ -1,135 +1,268 @@
-/* ===============================
-   SEÇÃO FUNCIONALIDADES
-================================ */
+/* ================= LIVING SYSTEM ================= */
 
-#funcionalidades {
-  position: relative;
-  padding: 100px 0;
-  background: #f6f8fc;
+#living-system {
+  padding: 120px 0;
+  background: radial-gradient(circle at top, #020617, #000);
+  color: #fff;
   overflow: hidden;
 }
 
-/* Faixa azul decorativa lateral */
-#funcionalidades::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -20%;
-  width: 60%;
-  height: 100%;
-  border-radius: 0 80px 80px 0;
-  opacity: 0.08;
-  z-index: 1; /* 👈 ESSENCIAL */
-}
-
-
-/* ===============================
-   TÍTULO DA SEÇÃO
-================================ */
-
-.section-title {
+.living-header {
   text-align: center;
-  max-width: 700px;
-  margin: 0 auto 60px;
-  position: relative;
-  z-index: 2;
+  max-width: 720px;
+  margin: 0 auto 80px;
 }
 
-.section-title h2 {
-  font-size: 2.4rem;
+.living-header h2 {
+  font-size: 2.6rem;
   font-weight: 700;
-  color: #0f172a;
+}
+
+.living-header p {
+  color: #94a3b8;
+  font-size: 1.05rem;
+}
+
+/* ================= STAGE ================= */
+
+.system-stage {
+  position: relative;
+  height: 520px;
+  perspective: 1200px;
+}
+
+#systemCanvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.core-node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #084184;
+  padding: 22px 36px;
+  border-radius: 999px;
+  font-weight: 700;
+  z-index: 3;
+  box-shadow: 0 0 60px rgba(56,189,248,.6);
+}
+
+/* ================= NODES ================= */
+
+.sys-node {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 120px;
+  padding: 16px;
+  text-align: center;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.15);
+  cursor: pointer;
+  z-index: 2;
+  transition: all .35s ease;
+}
+
+.sys-node i {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+  color: var(--primary);
+}
+
+.sys-node span {
+  font-size: .85rem;
+}
+
+.sys-node:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 40px rgba(56,189,248,.5);
+}
+
+/* ================= MODAL (STACK SAFE) ================= */
+
+.module-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999999; /* acima de tudo */
+}
+
+.module-modal.active {
+  display: block;
+}
+
+/* backdrop */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.75);
+  backdrop-filter: blur(8px);
+  z-index: 1;
+}
+
+/* box */
+.modal-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(.92);
+
+  background: var(--light);
+  backdrop-filter: blur(18px);
+
+  border-radius: 24px;
+  padding: 36px;
+  width: min(420px, 92%);
+
+  border: 1px solid rgba(255,255,255,.25);
+  box-shadow: 0 40px 120px rgba(0,0,0,.85);
+
+  z-index: 2;
+  opacity: 0;
+  transition: all .35s ease;
+}
+
+.module-modal.active .modal-box {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-box h3 {
+  font-size: 1.45rem;
   margin-bottom: 12px;
 }
 
-.section-title p {
-  font-size: 1.05rem;
-  color: #64748b;
-  line-height: 1.6;
+.modal-box p {
+  color: var(--font);
+  line-height: 1.65;
 }
 
-/* ===============================
-   CARDS
-================================ */
-
-.feature-card {
-  position: relative;
-  height: 100%;
-  padding: 32px 24px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.95) !important;
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
-  transition: all 0.35s ease;
-  z-index: 2;
-  overflow: hidden;
-}
-
-/* Linha azul decorativa no topo */
-.feature-card::before {
-  content: "";
+.modal-close {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, #0d6efd, #4f9cff);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 1.8rem;
+  cursor: pointer;
 }
 
-/* Hover elegante */
-.feature-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 30px 60px rgba(13, 110, 253, 0.18);
-}
+/* ================= RESPONSIVO — LIVING SYSTEM ================= */
 
-.feature-card:hover::before {
-  opacity: 1;
-}
+@media (max-width: 968px) {
 
-/* ===============================
-   ÍCONES
-================================ */
-
-.feature-card i {
-  font-size: 2.6rem;
-  color: #0d6efd;
-  margin-bottom: 18px;
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-
-.feature-card:hover i {
-  transform: scale(1.1);
-}
-
-/* ===============================
-   TEXTO
-================================ */
-
-.feature-card h5 {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #0f172a;
-  margin-bottom: 10px;
-}
-
-.feature-card p {
-  font-size: 0.95rem;
-  color: #475569;
-  line-height: 1.6;
-}
-
-/* ===============================
-   RESPONSIVO
-================================ */
-
-@media (max-width: 768px) {
-  #funcionalidades {
-    padding: 70px 0;
+  #living-system {
+    padding: 80px 0;
   }
 
-  .section-title h2 {
-    font-size: 2rem;
+  /* Remove canvas (mas mantém conceito) */
+  #systemCanvas {
+    display: none;
+  }
+
+  .system-stage {
+    position: relative;
+    height: auto;
+    perspective: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+  }
+
+  @media (max-width: 968px) {
+
+  .system-stage {
+    padding: 0 16px; /* 👈 borda padrão do site */
+  }
+
+}
+
+
+  /* Core permanece como centro visual */
+  .core-node {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+
+    margin-bottom: 20px;
+    padding: 20px 34px;
+
+    font-size: 1rem;
+    box-shadow: 0 0 30px rgba(56,189,248,.45);
+  }
+
+  /* Nodes viram lista premium */
+  .sys-node {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none !important;
+
+    width: 100%;
+    max-width: 420px;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    padding: 18px 22px;
+    border-radius: 20px;
+
+    background: linear-gradient(
+      135deg,
+      rgba(255,255,255,.10),
+      rgba(255,255,255,.04)
+    );
+
+    border: 1px solid rgba(255,255,255,.18);
+    backdrop-filter: blur(14px);
+
+    box-shadow:
+      0 8px 24px rgba(0,0,0,.35);
+  }
+
+  .sys-node i {
+    font-size: 1.6rem;
+    color: #38bdf8;
+    flex-shrink: 0;
+  }
+
+  .sys-node span {
+    font-size: .95rem;
+    font-weight: 600;
+    letter-spacing: .2px;
+  }
+
+  .sys-node::after {
+    content: "Ver detalhes";
+    margin-left: auto;
+    font-size: .75rem;
+    color: #94a3b8;
+    opacity: .7;
+  }
+
+  .sys-node:hover {
+    box-shadow: 0 0 26px rgba(56,189,248,.45);
+  }
+}
+
+/* MOBILE PEQUENO */
+@media (max-width: 520px) {
+
+  .sys-node {
+    max-width: 100%;
+  }
+
+  .sys-node span {
+    font-size: .9rem;
   }
 }

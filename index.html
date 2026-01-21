@@ -46,8 +46,25 @@
    class="whatsapp-float"
    target="_blank"
    aria-label="Fale conosco no WhatsApp">
-  <i class="bi bi-whatsapp"></i>
+<div class="side-button">
+  <div class="content">
+   <i class="bi bi-whatsapp"></i>
+    <span class="text">Fale Conosco</span>
+  </div>
+</div>
 </a>
+
+<!--Poupap Modulos-->
+<div id="moduleModal" class="module-modal">
+  <div class="modal-backdrop"></div>
+
+  <div class="modal-box">
+    <button class="modal-close">&times;</button>
+
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+  </div>
+</div>
 
  <!--Banner Flutuante-->
 <div class="ge-banner" id="geBanner">
@@ -318,175 +335,244 @@ function closeGeBanner() {
   </div>
 
   <!-- TARGET - CARDS -->
-  <section class="target section-soft">
-    <div class="container">
-      <div class="section-title text-center mb-5">
-        <h2>Ideal para quem vive de serviços</h2>
-        <p>O Chama OS se adapta a diferentes tipos de operação, do pequeno ao estruturado.</p>
-      </div>
+ <section class="target-split">
+  <div class="target-split__wrap">
 
-      <div class="row g-4">
-        <div class="col-md-3 col-sm-6">
-          <div class="target-card">
-            <div class="target-icon">
-              <i class="bi bi-tools"></i>
-            </div>
-            <h5>Assistência técnica</h5>
-            <p>Controle chamados, equipamentos, histórico e ordens de serviço em um só lugar.</p>
-          </div>
-        </div>
-
-        <div class="col-md-3 col-sm-6">
-          <div class="target-card">
-            <div class="target-icon">
-              <i class="bi bi-gear-wide-connected"></i>
-            </div>
-            <h5>Empresas de manutenção</h5>
-            <p>Organize contratos, manutenções preventivas e equipes técnicas com eficiência.</p>
-          </div>
-        </div>
-
-        <div class="col-md-3 col-sm-6">
-          <div class="target-card">
-            <div class="target-icon">
-              <i class="bi bi-briefcase"></i>
-            </div>
-            <h5>Prestadores de serviço</h5>
-            <p>Menos papel, mais produtividade e visão clara dos serviços realizados.</p>
-          </div>
-        </div>
-
-        <div class="col-md-3 col-sm-6">
-          <div class="target-card">
-            <div class="target-icon">
-              <i class="bi bi-people"></i>
-            </div>
-            <h5>Equipes externas</h5>
-            <p>Acompanhe atendimentos em tempo real, direto do celular ou tablet.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MÓDULOS -->
-  <section id="funcionalidades">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Módulos do ChamaOS</h2>
+    <!-- LADO VISUAL -->
+    <div class="target-visual">
+      <div class="visual-content">
+        <span>SaaS de serviços</span>
+        <h3>Gestão profissional<br>para quem executa</h3>
         <p>
-          Todos os recursos que você precisa para gerenciar serviços,
-          clientes e operações em um único sistema.
+          Controle total de ordens de serviço, equipes externas
+          e atendimentos em campo, tudo em um único sistema.
         </p>
       </div>
+    </div>
 
-      <div class="row g-4">
+    <!-- LADO CONTEÚDO -->
+    <div class="target-content">
+      <h2>Ideal para quem vive de serviços</h2>
+      <p class="subtitle">
+        Do prestador individual até empresas estruturadas.
+      </p>
 
-        <!-- CLIENTES -->
-        <div class="col-md-3 col-sm-6">
-          <div class="feature-card">
-            <i class="bi bi-people"></i>
-            <h5>Clientes</h5>
-            <p>
-              Cadastro completo de clientes com histórico de atendimentos,
-              ordens de serviço e contatos centralizados.
-            </p>
-          </div>
+      <div class="target-grid">
+        <div class="target-card">
+          <i class="bi bi-tools"></i>
+          <h5>Assistência técnica</h5>
+          <p>Chamados, histórico, equipamentos e ordens centralizadas.</p>
         </div>
 
-        <!-- EQUIPAMENTOS -->
-        <div class="col-md-3 col-sm-6">
-          <div class="feature-card">
-            <i class="bi bi-cpu"></i>
-            <h5>Equipamentos</h5>
-            <p>
-              Gerencie equipamentos vinculados aos clientes,
-              com identificação, status e histórico de serviços.
-            </p>
-          </div>
+        <div class="target-card">
+          <i class="bi bi-gear-wide-connected"></i>
+          <h5>Manutenção</h5>
+          <p>Contratos, manutenções preventivas e equipes organizadas.</p>
         </div>
 
-        <!-- QR CODES -->
-        <div class="col-md-3 col-sm-6">
-          <div class="feature-card">
-            <i class="bi bi-qr-code-scan"></i>
-            <h5>QR Codes</h5>
-            <p>
-              Gere QR Codes para cada equipamento e acesse
-              informações, chamados e históricos em segundos.
-            </p>
-          </div>
+        <div class="target-card">
+          <i class="bi bi-people"></i>
+          <h5>Equipes externas</h5>
+          <p>Acompanhamento em tempo real via celular ou tablet.</p>
         </div>
 
-        <!-- ESTOQUE -->
-        <div class="col-md-3 col-sm-6">
-          <div class="feature-card">
-            <i class="bi bi-box-seam"></i>
-            <h5>Estoque</h5>
-            <p>
-              Controle entradas, saídas, produtos e insumos
-              utilizados nas ordens de serviço.
-            </p>
-          </div>
+        <div class="target-card">
+          <i class="bi bi-briefcase"></i>
+          <h5>Prestadores</h5>
+          <p>Mais produtividade, menos papel e visão clara.</p>
         </div>
-
-        <!-- ORDENS DE SERVIÇO -->
-        <div class="col-md-3 col-sm-6">
-          <div class="feature-card">
-            <i class="bi bi-clipboard-check"></i>
-            <h5>Ordens de Serviço</h5>
-            <p>
-              Crie, acompanhe e finalize ordens de serviço
-              com registros, fotos, status e responsáveis.
-            </p>
-          </div>
-        </div>
-
-        <!-- FINANCEIRO -->
-        <div class="col-md-3 col-sm-6">
-          <div class="feature-card">
-            <i class="bi bi-cash-stack"></i>
-            <h5>Financeiro</h5>
-            <p>
-              Controle contas a pagar e receber, formas de pagamento,
-              movimentações e relatórios financeiros.
-            </p>
-          </div>
-        </div>
-
-        <!-- AGENDA -->
-        <div class="col-md-3 col-sm-6">
-          <div class="feature-card">
-            <i class="bi bi-calendar-check"></i>
-            <h5>Agenda</h5>
-            <p>
-              Organize compromissos, atendimentos e visitas técnicas
-              com visualização clara e prática.
-            </p>
-          </div>
-        </div>
-
-        <!-- TAREFAS -->
-        <div class="col-md-3 col-sm-6">
-          <div class="feature-card">
-            <i class="bi bi-list-check"></i>
-            <h5>Tarefas</h5>
-            <p>
-              Crie tarefas, defina responsáveis, prazos
-              e acompanhe a execução da equipe.
-            </p>
-          </div>
-        </div>
-
       </div>
     </div>
-  </section>
 
+  </div>
+</section>
 
+  <!-- MÓDULOS -->
+  <div class="section-title" id="como-funciona">
+    <h2>Módulos do Chama.OS</h2>
+    <p>
+     Todos os recursos que você precisa para gerenciar serviços, clientes e operações em um único sistema.
+    </p>
+  </div>
+<!-- ================= LIVING SYSTEM ================= -->
+<div class="system-stage" id="systemStage">
+  <canvas id="systemCanvas"></canvas>
 
+  <div class="core-node"><div class="logo-chama">
+              <span class="chama-br">
+                Chama
+                <svg class="linha" viewBox="0 0 120 12" preserveAspectRatio="none">
+                  <path d="M0 10 Q60 4 120 6" />
+                </svg>
+              </span>
 
+              <span class="ponto"></span>
 
+              <span class="os">OS</span>
+            </div></div>
+
+  <!-- SUPERIOR ESQUERDA -->
+  <div class="sys-node"
+    data-x="-320" data-y="-200" data-depth="0.25"
+    data-title="Clientes"
+    data-desc="Cadastro completo de clientes com histórico de atendimentos, ordens de serviço e contatos.">
+    <i class="bi bi-people"></i>
+    <span>Clientes</span>
+  </div>
+
+  <!-- SUPERIOR CENTRO -->
+  <div class="sys-node"
+    data-x="0" data-y="-230" data-depth="0.28"
+    data-title="Equipamentos"
+    data-desc="Gerencie equipamentos vinculados aos clientes, com identificação, status e histórico.">
+    <i class="bi bi-cpu"></i>
+    <span>Equipamentos</span>
+  </div>
+
+  <!-- SUPERIOR DIREITA -->
+  <div class="sys-node"
+    data-x="320" data-y="-200" data-depth="0.3"
+    data-title="Financeiro"
+    data-desc="Controle contas a pagar e receber, fluxo de caixa e relatórios financeiros.">
+    <i class="bi bi-cash-stack"></i>
+    <span>Financeiro</span>
+  </div>
+
+  <!-- LATERAL ESQUERDA -->
+  <div class="sys-node"
+    data-x="-420" data-y="0" data-depth="0.35"
+    data-title="Estoque"
+    data-desc="Controle entradas, saídas, produtos e insumos utilizados nos serviços.">
+    <i class="bi bi-box-seam"></i>
+    <span>Estoque</span>
+  </div>
+
+  <!-- LATERAL DIREITA -->
+  <div class="sys-node"
+    data-x="420" data-y="0" data-depth="0.35"
+    data-title="Agenda"
+    data-desc="Organize compromissos, visitas técnicas e tarefas da equipe.">
+    <i class="bi bi-calendar-check"></i>
+    <span>Agenda</span>
+  </div>
+
+  <!-- INFERIOR ESQUERDA -->
+  <div class="sys-node"
+    data-x="-320" data-y="220" data-depth="0.4"
+    data-title="Ordens de Serviço"
+    data-desc="Criação, acompanhamento e finalização de ordens com registros e responsáveis.">
+    <i class="bi bi-clipboard-check"></i>
+    <span>Ordens</span>
+  </div>
+
+  <!-- INFERIOR CENTRO -->
+  <div class="sys-node"
+    data-x="0" data-y="260" data-depth="0.42"
+    data-title="QR Codes"
+    data-desc="Acesso rápido a equipamentos, históricos e chamados via QR Code.">
+    <i class="bi bi-qr-code-scan"></i>
+    <span>QR Codes</span>
+  </div>
+
+  <!-- INFERIOR DIREITA -->
+  <div class="sys-node"
+    data-x="320" data-y="220" data-depth="0.45"
+    data-title="Tarefas"
+    data-desc="Distribuição de tarefas, prazos e acompanhamento da equipe.">
+    <i class="bi bi-list-check"></i>
+    <span>Tarefas</span>
+  </div>
+
+</div>
+
+<!-- ================= MODAL GLOBAL ================= -->
+<div id="moduleModal" class="module-modal">
+  <div class="modal-backdrop"></div>
+
+  <div class="modal-box">
+    <button class="modal-close">&times;</button>
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+  </div>
+</div>
+
+<script>
+const stage = document.getElementById("systemStage");
+const canvas = document.getElementById("systemCanvas");
+const ctx = canvas.getContext("2d");
+const nodes = document.querySelectorAll(".sys-node");
+const core = document.querySelector(".core-node");
+
+/* ===== Canvas ===== */
+function resize() {
+  canvas.width = stage.offsetWidth;
+  canvas.height = stage.offsetHeight;
+}
+window.addEventListener("resize", resize);
+resize();
+
+function drawLines() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  const cx = canvas.width / 2;
+  const cy = canvas.height / 2;
+
+  ctx.strokeStyle = "rgba(56,189,248,.35)";
+  ctx.lineWidth = 1.5;
+
+  nodes.forEach(node => {
+    const nx = cx + Number(node.dataset.x);
+    const ny = cy + Number(node.dataset.y);
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(nx, ny);
+    ctx.stroke();
+  });
+}
+drawLines();
+
+/* ===== Parallax ===== */
+stage.addEventListener("mousemove", e => {
+  const rect = stage.getBoundingClientRect();
+  const mx = e.clientX - rect.left - rect.width / 2;
+  const my = e.clientY - rect.top - rect.height / 2;
+
+  nodes.forEach(node => {
+    const d = node.dataset.depth;
+    const x = Number(node.dataset.x) + mx * d * 0.05;
+    const y = Number(node.dataset.y) + my * d * 0.05;
+    node.style.transform = `translate3d(${x}px,${y}px,${d*80}px)`;
+  });
+
+  core.style.transform =
+    `translate(-50%,-50%) translate3d(${mx*0.02}px,${my*0.02}px,0)`;
+
+  drawLines();
+});
+
+/* ===== Modal ===== */
+const modal = document.getElementById("moduleModal");
+const title = document.getElementById("modalTitle");
+const desc  = document.getElementById("modalDesc");
+
+document.addEventListener("click", e => {
+  const node = e.target.closest(".sys-node");
+  if (!node) return;
+
+  title.textContent = node.dataset.title || "";
+  desc.textContent  = node.dataset.desc || "";
+
+  modal.classList.add("active");
+});
+
+document.querySelector(".modal-close").addEventListener("click", closeModal);
+document.querySelector(".modal-backdrop").addEventListener("click", closeModal);
+
+function closeModal() {
+  modal.classList.remove("active");
+}
+</script>
+
+<!--Contato-->
   <section class="contact-section" id="contato">
     <div class="container">
       <div class="contact-wrapper">
