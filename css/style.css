@@ -14,6 +14,7 @@
     --font: #414c57;
     --hover: #d9e7f74f;
     --border: #e6e8eb;
+    --fundo-gradient: linear-gradient(135deg, #eef2f7, #f8fafc);
 }
 
 *{
