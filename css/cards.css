@@ -1,10 +1,10 @@
 /* ======================================================
-   TARGET SPLIT — INOVADOR & ENTERPRISE
+   TARGET SPLIT — MODERNO PREMIUM
 ====================================================== */
 
 .target-split {
-  background: #f5f6fa;
-  padding: 100px 0;
+  padding: 120px 24px;
+  background: linear-gradient(180deg, #f8fafc, #eef2ff);
 }
 
 .target-split__wrap {
@@ -12,11 +12,11 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-radius: 48px;
+  border-radius: 40px;
   overflow: hidden;
-  box-shadow: 0 60px 140px rgba(2,6,23,0.6);
+  background: white;
+  box-shadow: 0 40px 100px rgba(15,23,42,0.08);
 }
-
 
 /* ======================================================
    LADO VISUAL
@@ -24,60 +24,59 @@
 
 .target-visual {
   position: relative;
-  padding: 60px;
-  background:
-    linear-gradient(160deg, #0f172a, #0b3b8c, #0ea5e9);
+  padding: 80px 60px;
+  background: radial-gradient(circle at top left,
+      #1e3a8a,
+      #0f172a 70%);
   display: flex;
   align-items: center;
 }
 
 .visual-content span {
-  display: inline-block;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #7dd3fc;
-  margin-bottom: 14px;
+  color: #93c5fd;
+  margin-bottom: 16px;
+  display: inline-block;
 }
 
 .visual-content h3 {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 700;
-  color: #ffffff;
+  color: white;
   line-height: 1.2;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .visual-content p {
   font-size: 1rem;
   color: rgba(255,255,255,0.85);
-  max-width: 420px;
+  max-width: 460px;
 }
-
 
 /* ======================================================
    LADO CONTEÚDO
 ====================================================== */
 
 .target-content {
-  padding: 70px 40px;
-  background: #f8fafc;
+  padding: 80px 60px;
+  background: #ffffff;
 }
 
 .target-content h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  color: #020617;
+  color: #0f172a;
 }
 
 .target-content .subtitle {
   margin-top: 8px;
-  margin-bottom: 36px;
+  margin-bottom: 40px;
   font-size: 1rem;
-  color: #475569;
+  color: #64748b;
 }
-
 
 /* ======================================================
    GRID DE CARDS
@@ -86,52 +85,61 @@
 .target-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 22px;
+  gap: 26px;
 }
 
 .target-card {
   position: relative;
-  padding: 26px 24px;
-  border-radius: 22px;
-  background: #ffffff;
+  padding: 28px;
+  border-radius: 20px;
+  background: #f8fafc;
+  border: 1px solid rgba(15,23,42,0.06);
+  transition: all 0.35s ease;
+  overflow: hidden;
+}
 
-  border: 1px solid rgba(2,6,23,0.08);
-
-  box-shadow:
-    0 12px 28px rgba(2,6,23,0.12);
-
-  transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease;
+/* brilho sutil interno */
+.target-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right,
+      rgba(14,165,233,0.15),
+      transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .target-card i {
-  font-size: 1.5rem;
-  color: #0ea5e9;
-  margin-bottom: 12px;
+  font-size: 1.6rem;
+  color: #2563eb;
+  margin-bottom: 14px;
   display: inline-block;
 }
 
 .target-card h5 {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  margin-bottom: 6px;
-  color: #020617;
+  margin-bottom: 8px;
+  color: #0f172a;
 }
 
 .target-card p {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   line-height: 1.6;
-  color: #475569;
+  color: #64748b;
 }
 
-/* Hover limpo e profissional */
+/* Hover Premium */
 .target-card:hover {
-  transform: translateY(-10px);
-  box-shadow:
-    0 30px 60px rgba(14,165,233,0.25);
+  transform: translateY(-8px);
+  background: white;
+  box-shadow: 0 25px 60px rgba(37,99,235,0.15);
 }
 
+.target-card:hover::before {
+  opacity: 1;
+}
 
 /* ======================================================
    RESPONSIVO
@@ -142,12 +150,9 @@
     grid-template-columns: 1fr;
   }
 
-  .target-visual {
-    padding: 60px 16px;
-  }
-
+  .target-visual,
   .target-content {
-    padding: 70px 16px;
+    padding: 60px 28px;
   }
 }
 
@@ -157,10 +162,10 @@
   }
 
   .visual-content h3 {
-    font-size: 1.7rem;
+    font-size: 1.9rem;
   }
 
   .target-content h2 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 }

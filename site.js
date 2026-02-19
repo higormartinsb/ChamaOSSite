@@ -1,40 +1,4 @@
-// botões das etapas, painéis e imagem central
-document.addEventListener('DOMContentLoaded', () => {
 
-  const stepItems = document.querySelectorAll('.step-item');
-  const featureVideo = document.getElementById('feature-video');
-  const visualBox = document.querySelector('.visual-box');
-
-  stepItems.forEach(item => {
-    const button = item.querySelector('.step-btn');
-
-    button.addEventListener('click', () => {
-
-      // abre / fecha descrição
-      const isActive = item.classList.contains('active');
-
-      stepItems.forEach(i => i.classList.remove('active'));
-      if (!isActive) item.classList.add('active');
-
-      // troca vídeo
-      const videoSrc = item.getAttribute('data-img');
-      if (videoSrc && featureVideo) {
-        featureVideo.pause();
-        featureVideo.querySelector('source').src = videoSrc;
-        featureVideo.load();
-        featureVideo.play();
-      }
-
-      // scroll suave para o mockup
-      visualBox.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-
-    });
-  });
-
-});
 
 //MENU
 const menu = document.querySelector('.menu');
