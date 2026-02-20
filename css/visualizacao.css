@@ -134,28 +134,38 @@
     order: -1;
   }
 
+  /* Wrapper horizontal estilo app */
   .feature-list-wrapper {
     max-height: unset;
     overflow-x: auto;
     overflow-y: hidden;
-    padding-left: 0;
+
+    padding-left: 20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
 
   .feature-list {
     flex-direction: row;
-    gap: 14px;
-    padding-bottom: 12px;
+    gap: 16px;
   }
 
+  /* CARD MENOR PRA MOSTRAR O PRÓXIMO */
   .feature-item {
-    min-width: 260px;
-    flex-shrink: 0;
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+  }
+
+  /* Remove scrollbar visual */
+  .feature-list-wrapper::-webkit-scrollbar {
+    display: none;
   }
 
   .feature-indicator {
     display: none;
   }
 
+  /* Linha ativa continua funcionando */
   .feature-item {
     position: relative;
   }
@@ -176,7 +186,4 @@
     width: calc(100% - 40px);
   }
 
-  .feature-list-wrapper::-webkit-scrollbar {
-    height: 6px;
-  }
 }

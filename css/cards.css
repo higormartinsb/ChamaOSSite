@@ -1,171 +1,200 @@
 /* ======================================================
-   TARGET SPLIT — MODERNO PREMIUM
+   TARGET SPLIT — MODERN STRUCTURE FIXED
 ====================================================== */
 
 .target-split {
-  padding: 120px 24px;
-  background: linear-gradient(180deg, #f8fafc, #eef2ff);
+  padding: 80px 20px;
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
 }
 
+/* Container principal */
 .target-split__wrap {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-radius: 40px;
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 40px 100px rgba(15,23,42,0.08);
+  border-radius: 32px;
+  overflow: hidden; /* ESSENCIAL */
+  background: #ffffff;
+  box-shadow:
+    0 30px 80px rgba(15, 23, 42, 0.08),
+    0 10px 30px rgba(15, 23, 42, 0.05);
 }
 
 /* ======================================================
-   LADO VISUAL
+   LADO AZUL
 ====================================================== */
 
 .target-visual {
-  position: relative;
-  padding: 80px 60px;
-  background: radial-gradient(circle at top left,
-      #1e3a8a,
-      #0f172a 70%);
+  padding: 70px 60px;
   display: flex;
   align-items: center;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(59,130,246,0.3), transparent 45%),
+    linear-gradient(160deg, #1e3a8a 0%, #0f172a 85%);
+}
+
+.visual-content {
+  max-width: 480px;
 }
 
 .visual-content span {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #93c5fd;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   display: inline-block;
 }
 
 .visual-content h3 {
   font-size: 2.4rem;
   font-weight: 700;
-  color: white;
-  line-height: 1.2;
+  color: #ffffff;
+  line-height: 1.15;
   margin-bottom: 20px;
 }
 
 .visual-content p {
   font-size: 1rem;
   color: rgba(255,255,255,0.85);
-  max-width: 460px;
+  line-height: 1.7;
 }
 
 /* ======================================================
-   LADO CONTEÚDO
+   LADO BRANCO
 ====================================================== */
 
 .target-content {
-  padding: 80px 60px;
+  padding: 70px 60px;
   background: #ffffff;
 }
 
 .target-content h2 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #0f172a;
 }
 
 .target-content .subtitle {
-  margin-top: 8px;
-  margin-bottom: 40px;
+  margin-top: 12px;
+  margin-bottom: 32px;
   font-size: 1rem;
   color: #64748b;
 }
 
 /* ======================================================
-   GRID DE CARDS
+   CARDS
 ====================================================== */
 
 .target-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 26px;
+  gap: 20px;
 }
 
 .target-card {
-  position: relative;
-  padding: 28px;
-  border-radius: 20px;
+  padding: 24px;
+  border-radius: 18px;
   background: #f8fafc;
-  border: 1px solid rgba(15,23,42,0.06);
-  transition: all 0.35s ease;
-  overflow: hidden;
-}
-
-/* brilho sutil interno */
-.target-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top right,
-      rgba(14,165,233,0.15),
-      transparent 60%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  border: 1px solid rgba(15,23,42,0.05);
+  transition: 0.3s ease;
 }
 
 .target-card i {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #2563eb;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   display: inline-block;
 }
 
 .target-card h5 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
   color: #0f172a;
 }
 
 .target-card p {
   font-size: 0.9rem;
-  line-height: 1.6;
   color: #64748b;
+  line-height: 1.6;
 }
 
-/* Hover Premium */
 .target-card:hover {
-  transform: translateY(-8px);
-  background: white;
-  box-shadow: 0 25px 60px rgba(37,99,235,0.15);
-}
-
-.target-card:hover::before {
-  opacity: 1;
+  transform: translateY(-5px);
+  background: #ffffff;
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.12);
 }
 
 /* ======================================================
-   RESPONSIVO
+   DESKTOP FULL WIDTH AZUL
+====================================================== */
+
+@media (min-width: 992px) {
+
+  .target-split {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+}
+
+/* ======================================================
+   MOBILE APP STYLE CORRETO
 ====================================================== */
 
 @media (max-width: 992px) {
+
+  .target-split {
+    padding: 0;
+    background: none;
+  }
+
   .target-split__wrap {
-    grid-template-columns: 1fr;
+    display: block;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
   }
 
-  .target-visual,
+  /* Azul ocupa topo inteiro */
+  .target-visual {
+    padding: 100px 28px 80px;
+    text-align: center;
+  }
+
+  .visual-content {
+    margin: 0 auto;
+  }
+
+  /* Branco sobe com borda correta */
   .target-content {
-    padding: 60px 28px;
+    margin-top: -40px;
+    padding: 50px 28px 70px;
+    border-radius: 32px 32px 0 0;
+    box-shadow: 0 -20px 60px rgba(15,23,42,0.08);
+    position: relative;
+    z-index: 2;
+    text-align: center;
   }
-}
 
-@media (max-width: 576px) {
+   .target-content h2 {
+    text-align: center;
+   }
+
   .target-grid {
     grid-template-columns: 1fr;
+    gap: 18px;
   }
 
-  .visual-content h3 {
-    font-size: 1.9rem;
+  .target-card {
+    text-align: center;
   }
 
-  .target-content h2 {
-    font-size: 1.8rem;
+  .target-card p {
+    max-width: 300px;
+    margin: 0 auto;
   }
 }

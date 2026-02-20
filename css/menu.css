@@ -426,6 +426,16 @@ video {
   color: var(--primary-hover);
 }
 
+.main {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("https://www.jqueryscript.net/dummy/10.jpg");
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+}
+
 @media only screen and (min-width: 993px) {
   .header .menu > ul > li.menu-item-has-children:hover .menu-subs {
     margin-top: 0.5rem;
@@ -569,8 +579,11 @@ video {
     top: 0;
     height: 3.125rem;
     z-index: 501;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
     background: #fafafa;
+  }
+ .header {
+    padding: 20px 0; /* aumenta respiro vertical */
   }
   .header .menu .menu-mobile-header .menu-mobile-arrow {
     display: none;
@@ -601,15 +614,27 @@ video {
     cursor: pointer;
     width: 3.125rem;
     height: 3.125rem;
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    
     color: #121212;
     text-align: center;
   }
-  .header .menu .menu-section {
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
+.header .menu .menu-section {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background: #ffffff;
+
+  padding: 28px 24px 36px;
+
+  /* leve profundidade */
+  box-shadow: inset 0 1px 0 #f3f4f6;
+
+  /* deixa o conteúdo respirar */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
   .header .menu > ul > li .menu-subs {
     position: absolute;
     display: none;
@@ -699,12 +724,19 @@ video {
   }
 }
 
-.main {
-  display: block;
-  width: 100%;
-  min-height: 100vh;
-  background-image: url("https://www.jqueryscript.net/dummy/10.jpg");
-  background-size: cover;
-  background-position: center right;
-  background-repeat: no-repeat;
+/* Corrige botão dentro do menu mobile */
+@media (max-width: 991px) {
+
+  .header .menu .mobile-btn a.btn-saas {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    color: #fff;
+  }
+
 }
+
+
+
