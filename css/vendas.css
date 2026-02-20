@@ -1,0 +1,62 @@
+.sales-popup {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  background: #009ffc;
+  padding: 14px 18px;
+  border-radius: 16px;
+
+  box-shadow: 0 20px 60px rgba(15,23,42,0.15);
+
+  max-width: 320px;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+
+  z-index: 9999;
+}
+
+.sales-popup.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.popup-avatar {
+  width: 36px;
+  height: 36px;
+  background: var(--primary-2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.popup-text {
+  font-size: 14px;
+  color: #f5efef;
+  line-height: 1.4;
+}
+
+.popup-text strong {
+  color: #fff;
+}
+
+.popup-time {
+  font-size: 12px;
+  color: #f5efef;
+  margin-top: 2px;
+}
+
+.popup-sub {
+  font-size: 12px;
+  color: #f5efef;
+  margin-top: 4px;
+  font-weight: 500;
+}

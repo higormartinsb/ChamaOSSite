@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="css/banner.css">
   <link rel="stylesheet" href="css/whats.css">
   <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/vendas.css">
 
   <!--Favicon-->
   <!-- Favicon padrão -->
@@ -44,6 +45,77 @@
 </head>
 
 <body>
+<!--Poupap de Venda automatica-->
+<div class="sales-popup" id="salesPopup">
+  <div class="popup-text">
+    <div>
+      <strong id="popupName">Pedro</strong>
+      <span id="popupAction">iniciou o teste grátis</span>
+      no <strong>ChamaOS</strong>
+    </div>
+    <div class="popup-sub" id="popupSub">
+      🚀 Aproveite enquanto o teste grátis está disponível
+    </div>
+    <div class="popup-time" id="popupTime">há poucos segundos</div>
+  </div>
+</div>
+<script>
+const names = [
+  "RefriTurbo", "Refrigeração Souza", "Diego Refrigeração", "TecElétrica",
+  "ArFrio", "Fernando", "ArCenter", "ArGelado"
+];
+
+const actions = [
+  "iniciou o teste grátis",
+  "ativou o plano Pro",
+  "começou a organizar seus clientes",
+  "acabou de criar sua conta"
+];
+
+const subs = [
+  "🚀 Aproveite enquanto o teste grátis está disponível",
+  "🔥 Cada vez mais profissionais estão migrando",
+  "💡 Simplifique sua gestão hoje mesmo",
+  "⚡ Não fique para trás"
+];
+
+const popup = document.getElementById("salesPopup");
+const popupName = document.getElementById("popupName");
+const popupAction = document.getElementById("popupAction");
+const popupSub = document.getElementById("popupSub");
+const popupTime = document.getElementById("popupTime");
+
+function randomItem(array) {
+  return array[Math.floor(Math.random() * array.length)];
+}
+
+function randomTime() {
+  const times = [
+    "há poucos segundos",
+    "há 1 minuto",
+    "há 2 minutos",
+    "agora mesmo"
+  ];
+  return randomItem(times);
+}
+
+function showPopup() {
+  popupName.textContent = randomItem(names);
+  popupAction.textContent = randomItem(actions);
+  popupSub.textContent = randomItem(subs);
+  popupTime.textContent = randomTime();
+
+  popup.classList.add("show");
+
+  setTimeout(() => {
+    popup.classList.remove("show");
+  }, 5100);
+}
+
+setTimeout(showPopup, 10000);
+setInterval(showPopup, 19000);
+</script>
+
 <!-- WhatsApp Floating -->
 <a href="https://wa.me/5527988891413?text=Olá! Gostaria de falar com a ChamaOS."
    class="wa-float"
